@@ -1,9 +1,9 @@
 # bright-framework
-```php
+
 php mvc framework 
 
 add these to httpd.conf and edit variables
-
+```php
 <VirtualHost 127.0.0.1:80>
 	ServerName yourServerName
         DocumentRoot "your document root address"
