@@ -1,4 +1,5 @@
 # bright-framework
+```php
 php mvc framework 
 
 add these to httpd.conf and edit variables
@@ -14,3 +15,4 @@ add these to httpd.conf and edit variables
     Order Allow,Deny
     Allow From All
 </Directory>
+```
