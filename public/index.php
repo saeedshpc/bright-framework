@@ -4,9 +4,9 @@ require "../vendor/autoload.php";
 
 $router = new \Core\Router;
 
-$router->add("series", ["use" => "SeriesController@index"]);
-$router->add("series/learning-php", "SeriesController@serie");
-$router->add("series/learning-php/episode/3", "SeriesController@episode");
+//$router->add("/series", ["use" => "SeriesController@index"]);
+//$router->add("/series/{slug}", "SeriesController@serie");
+$router->add("/series/{slug}/episode/{id}", "SeriesController@episode");
 
 $url = $_SERVER['QUERY_STRING'];
 

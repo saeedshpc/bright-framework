@@ -7,8 +7,18 @@ class Router
 
     public function add($route, $action)
     {
+        $route = preg_replace('/^\//', '', $route);
+
+        $route = preg_replace('/\//', '\\/', $route);
+
+        $route = preg_replace('/\{([a-z]+)\}/','(?<\1>[a-z0-9-]+)', $route);
+
+        $route = '/^' . $route . '\/?$/i';
+
         $action = is_array($action) ? $action['use'] : $action;
+
         list($params['controller'], $params['method']) = explode("@", $action);
+
         $this->routes[$route] = $params;
     }
 
@@ -16,7 +26,12 @@ class Router
     public function match($url)
     {
         foreach ($this->routes as $route => $params) {
-            if ($url == $route) {
+            if (preg_match($route, $url, $matches)) {
+                foreach($matches as $key => $match) {
+                    if(is_string($key)) {
+                        $params[$key] = $match;
+                    }
+                }
                 $this->params = $params;
                 return true;
             }
