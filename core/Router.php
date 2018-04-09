@@ -36,7 +36,7 @@ class Router
             if (preg_match($route, $url, $matches)) {
                 foreach($matches as $key => $match) {
                     if(is_string($key)) {
-                        $params[$key] = $match;
+                        $params['params'][$key] = $match;
                     }
                 }
                 $this->params = $params;
@@ -48,11 +48,21 @@ class Router
 
     public function dispatch($url)
     {
+        $url = $this->removeVariableOfQueryString($url);
         if ($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = $this->getNamespace() . $controller;
-            if (class_exists($controller)) {
 
+            if (class_exists($controller)) {
+                $controller_object = new $controller;
+
+                $method = $this->params['method'];
+
+                if(is_callable([$controller_object, $method])) {
+                    echo call_user_func_array([$controller_object, $method], $this->params['params']);
+                } else {
+                    die("Method {$method} (is controller {$controller}) not found");
+                }
             } else {
                 die("Controller class {$controller} not found");
             }
@@ -71,7 +81,7 @@ class Router
         return $this->params;
     }
 
-    public function getNamespace()
+    protected function getNamespace()
     {
         $namespace = $this->namespace;
         if (array_key_exists('namespace', $this->params)) {
@@ -79,5 +89,18 @@ class Router
         }
 
         return $namespace;
+    }
+
+    protected function removeVariableOfQueryString($url)
+    {
+        if ($url != '') {
+            $parts = explode("&",$url, 2);
+            if (strpos($parts[0], '=') === false) {
+                $url = $parts[0];
+            } else {
+                $url = '';
+            }
+            return $url;
+        }
     }
 }
