@@ -4,8 +4,9 @@ class Router
 {
     protected $routes = [];
     protected $params = [];
+    protected $namespace = 'App\Controllers\\';
 
-    public function add($route, $action)
+    public function add($route, $params)
     {
         $route = preg_replace('/^\//', '', $route);
 
@@ -15,11 +16,17 @@ class Router
 
         $route = '/^' . $route . '\/?$/i';
 
-        $action = is_array($action) ? $action['use'] : $action;
+        if(is_string($params)) {
+            list($allParams['controller'], $allParams['method']) = explode('@', $params);
+        }
 
-        list($params['controller'], $params['method']) = explode("@", $action);
+        if(is_array($params)) {
+            list($allParams['controller'], $allParams['method']) = explode('@', $params['uses']);
+            unset($params['uses']);
+            $allParams = array_merge($allParams, $params);
+        }
 
-        $this->routes[$route] = $params;
+        $this->routes[$route] = $allParams;
     }
 
 
@@ -39,6 +46,21 @@ class Router
         return false;
     }
 
+    public function dispatch($url)
+    {
+        if ($this->match($url)) {
+            $controller = $this->params['controller'];
+            $controller = $this->getNamespace() . $controller;
+            if (class_exists($controller)) {
+
+            } else {
+                die("Controller class {$controller} not found");
+            }
+        } else {
+            die("No route matched.");
+        }
+    }
+
     public function getRoutes()
     {
         return $this->routes;
@@ -49,4 +71,13 @@ class Router
         return $this->params;
     }
 
+    public function getNamespace()
+    {
+        $namespace = $this->namespace;
+        if (array_key_exists('namespace', $this->params)) {
+            $namespace .= $this->params['namespace'] . '\\';
+        }
+
+        return $namespace;
+    }
 }
