@@ -61,13 +61,13 @@ class Router
                 if(is_callable([$controller_object, $method])) {
                     echo call_user_func_array([$controller_object, $method], $this->params['params']);
                 } else {
-                    die("Method {$method} (is controller {$controller}) not found");
+                    throw new \Exception("Method {$method} (is controller {$controller}) not found");
                 }
             } else {
-                die("Controller class {$controller} not found");
+                throw new \Exception("Controller class {$controller} not found");
             }
         } else {
-            die("No route matched.");
+            throw new \Exception("No route matched.");
         }
     }
 
