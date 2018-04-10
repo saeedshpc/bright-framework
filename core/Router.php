@@ -59,7 +59,11 @@ class Router
                 $method = $this->params['method'];
 
                 if(is_callable([$controller_object, $method])) {
-                    echo call_user_func_array([$controller_object, $method], $this->params['params']);
+                    if ($controller_object->beofre() == true) {
+                        echo call_user_func_array([$controller_object, $method], $this->params['params']);
+                        $controller_object->after();
+                    }
+
                 } else {
                     throw new \Exception("Method {$method} (is controller {$controller}) not found");
                 }
@@ -67,7 +71,7 @@ class Router
                 throw new \Exception("Controller class {$controller} not found");
             }
         } else {
-            throw new \Exception("No route matched.");
+            throw new \Exception("No route matched.", 404);
         }
     }
 
