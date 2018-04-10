@@ -1,6 +1,8 @@
 <?php namespace App\Controllers;
 
-class SeriesController
+use Core\Controller;
+
+class SeriesController extends Controller
 {
     public function index()
     {
@@ -14,6 +16,6 @@ class SeriesController
 
     public function episode($slug, $id)
     {
-        return var_dump($_GET);
+        return $slug;
     }
 }
