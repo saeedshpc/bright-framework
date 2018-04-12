@@ -59,7 +59,8 @@ class Router
                 $method = $this->params['method'];
 
                 if(is_callable([$controller_object, $method])) {
-                    if ($controller_object->beofre() == true) {
+                    if ($controller_object->before() == true) {
+                        $this->params['params'] = isset($this->params['params']) ? $this->params['params'] : [];
                         echo call_user_func_array([$controller_object, $method], $this->params['params']);
                         $controller_object->after();
                     }

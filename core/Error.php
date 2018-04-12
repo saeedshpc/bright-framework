@@ -2,6 +2,7 @@
 
 class Error
 {
+
     public static function errorHandler($level, $message, $file, $line)
     {
         if (error_reporting() !== 0) {
@@ -18,7 +19,7 @@ class Error
 
         http_response_code($code);
 
-        if (true) {
+        if (false) {
             echo "<h1>Fatal error</h1>";
             echo "<p>Uncaught exception: '" . get_class($exception) . "'</p>";
             echo "<p>Message : '" . $exception->getMessage() . "'</p>";
@@ -37,7 +38,7 @@ class Error
             error_log($message); //Sends an error message to the web server's error log or to a file.
 
 
-            //view
+            echo View::render("errors/{$code}");
 
         }
     }
