@@ -9,6 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+      
         $user = new User();
         var_dump($user->findUser(1));die;
 //        return View::renderTemplae('index');
