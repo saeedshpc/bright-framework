@@ -19,7 +19,7 @@ class Error
 
         http_response_code($code);
 
-        if (false) {
+        if (true) {
             echo "<h1>Fatal error</h1>";
             echo "<p>Uncaught exception: '" . get_class($exception) . "'</p>";
             echo "<p>Message : '" . $exception->getMessage() . "'</p>";
@@ -38,7 +38,7 @@ class Error
             error_log($message); //Sends an error message to the web server's error log or to a file.
 
 
-            echo View::render("errors/{$code}");
+            echo View::renderTemplae("errors.{$code}");
 
         }
     }
