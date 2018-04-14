@@ -1,0 +1,30 @@
+[14-Apr-2018 10:29:31 Europe/Berlin] <h1>Fatal error</h1>
+<p>Uncaught exception: 'Exception'</p>
+<p>Message : 'No route matched.'</p>
+<p>Stack trace: <pre>#0 C:\xampp\htdocs\mvcFramework\public\index.php(11): Core\Router->dispatch('robots.txt')
+#1 {main}</pre></p>
+<p>Thrown in 'C:\xampp\htdocs\mvcFramework\core\Router.php' on line 75</p>
+
+[14-Apr-2018 10:29:33 Europe/Berlin] <h1>Fatal error</h1>
+<p>Uncaught exception: 'Exception'</p>
+<p>Message : 'No route matched.'</p>
+<p>Stack trace: <pre>#0 C:\xampp\htdocs\mvcFramework\public\index.php(11): Core\Router->dispatch('favicon.ico')
+#1 {main}</pre></p>
+<p>Thrown in 'C:\xampp\htdocs\mvcFramework\core\Router.php' on line 75</p>
+
+[14-Apr-2018 10:29:35 Europe/Berlin] <h1>Fatal error</h1>
+<p>Uncaught exception: 'ErrorException'</p>
+<p>Message : 'Parse error: syntax error, unexpected ';' (View: C:\xampp\htdocs\mvcFramework\app\Views\series\episode.blade.php)'</p>
+<p>Stack trace: <pre>#0 C:\xampp\htdocs\mvcFramework\vendor\illuminate\view\Engines\PhpEngine.php(47): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(Symfony\Component\Debug\Exception\FatalThrowableError), 1)
+#1 C:\xampp\htdocs\mvcFramework\vendor\illuminate\view\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#2 C:\xampp\htdocs\mvcFramework\vendor\illuminate\view\View.php(142): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\mvcFramework\vendor\illuminate\view\View.php(125): Illuminate\View\View->getContents()
+#4 C:\xampp\htdocs\mvcFramework\vendor\illuminate\view\View.php(90): Illuminate\View\View->renderContents()
+#5 C:\xampp\htdocs\mvcFramework\core\View.php(28): Illuminate\View\View->render()
+#6 C:\xampp\htdocs\mvcFramework\app\Controllers\SeriesController.php(23): Core\View::renderTemplae('series.episode', Array)
+#7 [internal function]: App\Controllers\SeriesController->episode('course-name', '4')
+#8 C:\xampp\htdocs\mvcFramework\core\Router.php(64): call_user_func_array(Array, Array)
+#9 C:\xampp\htdocs\mvcFramework\public\index.php(11): Core\Router->dispatch('series/course-n...')
+#10 {main}</pre></p>
+<p>Thrown in 'C:\xampp\htdocs\mvcFramework\storage\views\cfc525a7a06295b747ed30c404ea773fb0847bb5.php' on line 2</p>
+
