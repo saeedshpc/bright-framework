@@ -6,12 +6,12 @@ use \Illuminate\Database\Capsule\Manager as Capsule;
 $capsule = new Capsule();
 
 $capsule->addConnection([
-    'driver' => 'mysql',
-    'host' => 'localhost',
-    'port' => '3306',
-    'database' => 'YOUR_DB_NAME',
-    'username' => 'YOUR_USERNAME',
-    'password' => 'YOUR_PASSWORD',
+    'driver' => getenv('DB_CONNECTION'),
+    'host' => getenv('DB_HOST'),
+    'port' => getenv('DB_PORT'),
+    'database' => getenv('DB_DATABASE'),
+    'username' => getenv('DB_USERNAME'),
+    'password' => getenv('DB_PASSWORD'),
     'charset' => 'utf8',
     'collation' => 'utf8_unicode_ci'
 ]);
