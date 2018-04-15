@@ -4,13 +4,13 @@ use Philo\Blade\Blade;
 
 class View
 {
-    public static function render($view, $args = [])
+    public static function render($view , $args = [])
     {
-        extract($args,EXTR_SKIP);
+        extract($args , EXTR_SKIP);
 
-        $file = "../app/views/{$view}.php";
+        $file = "../App/Views/{$view}.php";
 
-        if (is_readable($file)) {
+        if(is_readable($file)) {
             require $file;
         } else {
             throw new \Exception("{$file} not found");
@@ -18,13 +18,14 @@ class View
 
     }
 
-    public static function renderTemplae($template, $args = [])
+    public static function renderTemplate($template , $args = [])
     {
-        $views = realpath(__DIR__ . '/../app/Views');
+        $views = realpath(__DIR__ . '/../App/Views');
         $cache = realpath(__DIR__ . '/../storage/views');
 
-        $blade = new Blade($views, $cache);
+        $blade = new Blade($views , $cache);
 
         return $blade->view()->make($template, $args)->render();
     }
+   
 }

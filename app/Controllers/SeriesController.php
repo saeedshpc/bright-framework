@@ -12,15 +12,15 @@ class SeriesController extends Controller
 
     public function serie($slug)
     {
-        return "Series Page";
+        return "Seies Page";
     }
 
-    public function episode($slug, $id)
+    public function episode($slug , $id)
     {
-        $users = ['saeed', 'amin', 'mohammad mehdi'];
+        $users = ['hesam' ,'ali' , 'reza' , 'mohammad'];
 
-        return View::renderTemplae("series.episode", [
-            'users' => $users
+        return View::renderTemplate("series.episode" , [
+           'users' => $users
         ]);
     }
 }

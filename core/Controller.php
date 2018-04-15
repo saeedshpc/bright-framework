@@ -9,6 +9,6 @@ abstract class Controller
 
     public function after()
     {
-
+   
     }
 }

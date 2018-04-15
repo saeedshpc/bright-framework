@@ -1,17 +1,16 @@
 <?php namespace App\Controllers;
 
+use App\Models\Article;
+use App\Models\User;
 use Core\Controller;
 use Core\View;
-use App\Models\User;
-use App\Models\Article;
 
 class HomeController extends Controller
 {
     public function index()
     {
-      
-        $user = new User();
-        var_dump($user->findUser(1));die;
-//        return View::renderTemplae('index');
+
+        var_dump(User::find(1)->fullname);die;
+//        return View::renderTemplate("index");
     }
 }
