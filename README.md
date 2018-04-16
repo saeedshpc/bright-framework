@@ -2,7 +2,7 @@
 
 php mvc framework 
 
-add these to httpd.conf and edit variables
+for workng Local : add these to httpd.conf and edit variables
 ```
 <VirtualHost 127.0.0.1:80>
 	ServerName yourServerName
@@ -16,3 +16,4 @@ add these to httpd.conf and edit variables
     Allow From All
 </Directory>
 ```
+in case of using this framework on a web host/server just upload and change public to public_html
