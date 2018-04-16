@@ -5,13 +5,15 @@ use \Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule();
 
+//var_dump(env('DB_DATABASE'));die;
+
 $capsule->addConnection([
-    'driver' => getenv('DB_CONNECTION'),
-    'host' => getenv('DB_HOST'),
-    'port' => getenv('DB_PORT'),
-    'database' => getenv('DB_DATABASE'),
-    'username' => getenv('DB_USERNAME'),
-    'password' => getenv('DB_PASSWORD'),
+    'driver' => env('DB_CONNECTION'),
+    'host' => env('DB_HOST'),
+    'port' => env('DB_PORT'),
+    'database' => env('DB_DATABASE'),
+    'username' => env('DB_USERNAME' , 'root'),
+    'password' => env('DB_PASSWORD'),
     'charset' => 'utf8',
     'collation' => 'utf8_unicode_ci'
 ]);
