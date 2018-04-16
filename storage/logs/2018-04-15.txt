@@ -1,0 +1,29 @@
+[15-Apr-2018 18:13:05 Europe/Berlin] 
+<h1>Fatal error</h1>
+<p>Uncaught exception: 'PDOException'</p>
+<p>Message : 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)'</p>
+<p>Stack trace: <pre>#0 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Connectors\Connector.php(55): PDO->__construct('mysql:host=loca...', 'root', 'saeed2', Array)
+#1 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Connectors\MySqlConnector.php(24): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=loca...', Array, Array)
+#2 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Connectors\ConnectionFactory.php(61): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
+#3 [internal function]: Illuminate\Database\Connectors\ConnectionFactory->Illuminate\Database\Connectors\{closure}()
+#4 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Connection.php(908): call_user_func(Object(Closure))
+#5 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Connection.php(776): Illuminate\Database\Connection->getPdo()
+#6 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Connection.php(661): Illuminate\Database\Connection->reconnectIfMissingConnection()
+#7 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Connection.php(342): Illuminate\Database\Connection->run('select * from `...', Array, Object(Closure))
+#8 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Query\Builder.php(1583): Illuminate\Database\Connection->select('select * from `...', Array, true)
+#9 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Query\Builder.php(1569): Illuminate\Database\Query\Builder->runSelect()
+#10 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Eloquent\Builder.php(624): Illuminate\Database\Query\Builder->get(Array)
+#11 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Eloquent\Builder.php(316): Illuminate\Database\Eloquent\Builder->getModels(Array)
+#12 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Eloquent\Builder.php(286): Illuminate\Database\Eloquent\Builder->get(Array)
+#13 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Eloquent\Builder.php(167): Illuminate\Database\Eloquent\Builder->first(Array)
+#14 [internal function]: Illuminate\Database\Eloquent\Builder->find(1)
+#15 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Eloquent\Model.php(3494): call_user_func_array(Array, Array)
+#16 [internal function]: Illuminate\Database\Eloquent\Model->__call('find', Array)
+#17 C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Eloquent\Model.php(3508): call_user_func_array(Array, Array)
+#18 C:\xampp\htdocs\mvcFramework\app\Controllers\HomeController.php(13): Illuminate\Database\Eloquent\Model::__callStatic('find', Array)
+#19 [internal function]: App\Controllers\HomeController->index()
+#20 C:\xampp\htdocs\mvcFramework\core\Router.php(67): call_user_func_array(Array, Array)
+#21 C:\xampp\htdocs\mvcFramework\public\index.php(11): Core\Router->dispatch(NULL)
+#22 {main}</pre></p>
+<p>Thrown in 'C:\xampp\htdocs\mvcFramework\vendor\illuminate\database\Connectors\Connector.php' on line 55</p>
+

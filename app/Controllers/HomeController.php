@@ -9,7 +9,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
         var_dump(User::find(1)->fullname);die;
 //        return View::renderTemplate("index");
     }

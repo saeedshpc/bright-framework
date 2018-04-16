@@ -1,6 +1,7 @@
 <?php namespace Core;
 
-use App\Config;
+use App\Confing;
+
 class Error
 {
 
@@ -19,7 +20,7 @@ class Error
 
         http_response_code($code);
 
-        if(getenv('APP_DEBUG')) {
+        if(env('APP_DEBUG', false)) {
             echo "<h1>Fatal error</h1>";
             echo "<p>Uncaught exception: '" . get_class($exception) . "'</p>";
             echo "<p>Message : '" . $exception->getMessage() . "'</p>";
